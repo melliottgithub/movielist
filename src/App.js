@@ -32,7 +32,7 @@ function App({ movies }) {
 }
 
 App.propTypes = {
-  movies: PropTypes.array.isRequired,
+  // movies: PropTypes.array.isRequired,
 };
 
 export default App;

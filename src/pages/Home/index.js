@@ -1,21 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import MainPageLayout from "../../components/MainPageLayout";
+import { API_KEY, API_URL, SEARCH_BASE_URL } from "../../data";
 
 const initialState = "";
+const initialArrState = [];
 
 const Home = () => {
   const [input, setInput] = useState(initialState);
+  const [list, setList] = useState(initialArrState);
 
   const handleOnInput = (e) => {
     const value = e.target.value;
     setInput(value);
-    console.log(value);
   };
 
   const handleOnCLick = () => {
-    console.log("I GOT IT ROSE!!!");
-    console.log(input);
+    fetch(`${SEARCH_BASE_URL}${input}`)
+      .then((res) => res.json())
+      .then((result) => console.log(result));
+  };
+
+  const handleOnEnter = (e) => {
+    console.log(e.keyCode);
+    if (e.keyCode === 13) handleOnCLick();
   };
 
   return (
@@ -26,7 +34,7 @@ const Home = () => {
         type="text"
         onChange={handleOnInput}
       ></input>
-      <button type="button" onClick={handleOnCLick}>
+      <button type="button" onKeyDown={handleOnEnter} onClick={handleOnCLick}>
         GO!
       </button>
     </MainPageLayout>
