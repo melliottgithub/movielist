@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import MainPageLayout from "../../components/MainPageLayout";
-import { API_KEY, API_URL, SEARCH_BASE_URL } from "../../data";
+import { apiFetch } from "../../config";
 
 const initialState = "";
 const initialArrState = [];
@@ -16,9 +16,7 @@ const Home = () => {
   };
 
   const handleOnCLick = () => {
-    fetch(`${SEARCH_BASE_URL}${input}`)
-      .then((res) => res.json())
-      .then((result) => console.log(result));
+    apiFetch(input).then((result) => setList(result));
   };
 
   const handleOnEnter = (e) => {
