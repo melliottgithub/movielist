@@ -6,8 +6,12 @@ import Title from "../Title";
 const MainPageLayout = ({ children }) => {
   return (
     <div>
-      <Title title="Movie List" subtitle="Pick the movie you want" />
       <Navs />
+      <Title
+        // key={Math.random()}
+        title="Movie List"
+        subtitle="Pick the movie you want"
+      />
       {children}
     </div>
   );

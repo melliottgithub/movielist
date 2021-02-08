@@ -7,12 +7,12 @@ const LINKS = [
   { to: "/description", text: "Description" },
 ];
 
-const Navs = (props) => {
+const Navs = () => {
   return (
     <div>
       <ul>
-        {LINKS.map(({ to, text }) => (
-          <li>
+        {LINKS.map(({ to, text }, index) => (
+          <li key={index}>
             <Link to={to}>{text}</Link>
           </li>
         ))}
