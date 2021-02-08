@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Switch, Route } from "react-router-dom";
-import Header from "./components/Header";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Description from "./components/Description";
-import Navs from "./components/Navs";
+import Description from "./pages/Description";
+import Home from "./pages/Home";
 
 const StyledFrag = styled.div`
   background-color: white;
@@ -19,8 +18,7 @@ function App({ movies }) {
     <Switch>
       <StyledFrag>
         <Route exact path="/">
-          <Navs />
-          <Header />
+          <Home />
         </Route>
         <Route exact path="/description">
           <Description />
